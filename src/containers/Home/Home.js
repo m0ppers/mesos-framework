@@ -53,13 +53,13 @@ export default class Home extends Component {
 
     if (this.props.endpoints.dbservers) {
       dbservers = this.props.endpoints.dbservers.map(dbserver => {
-        return (<li>{dbserver}</li>);
+        return (<li key={dbserver}>{dbserver}</li>);
       });
     }
     let clusterAccess;
     if (this.props.endpoints.coordinators) {
       coordinators = this.props.endpoints.coordinators.map(coordinator => {
-        return (<li><a href={coordinator}>{coordinator}</a></li>);
+        return (<li key={coordinator}><a href={coordinator}>{coordinator}</a></li>);
       });
       clusterAccess = (<div className={styles.action}>Access your cluster: <a href={this.props.endpoints.coordinators[0]}>{this.props.endpoints.coordinators[0]}</a></div>)
     }
